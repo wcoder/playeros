@@ -6,9 +6,68 @@
 </head>
 <body>
 
-<div id="playeros"></div>
+<div id="playeros">
+
+    <audio controls class="playeros-player" preload="metadata" src="#"></audio>
+    <div>
+        <button class="playeros-play">></button>
+        <input type="range" class="playeros-range" min="0" max="10" step="1">
+        <progress class="playeros-progress"></progress>
+        <p>
+            <span class="playeros-currenttime"></span> / <span class="playeros-endtime"></span>
+        </p>
+
+        <p class="playeros-composition"></p>
+        <button class="playeros-back"><<</button>
+        <button class="playeros-next">>></button>
+    </div>
+
+</div>
 
 
 <script src="playeros.js"></script>
+<script>
+    (function () {
+
+        var element1 = document.querySelector('#playeros');
+        var playlist1 = [
+            {
+                'name': 'Anti-Trust - No Privacy',
+                'file': 'http://www.americanparanoia.com/AntiTrust%20-%20NoPrivacy.mp3'
+            },
+            {
+                'name': 'Anti-Trust - I am You',
+                'file': 'http://www.americanparanoia.com/AntiTrust%20-%20I%20am%20you.mp3'
+            },
+            {
+                'name': 'Anti-Trust - Antisocial',
+                'file': 'http://www.americanparanoia.com/AntiTrust%20-%20AntiSocial.mp3'
+            },
+            {
+                'name': 'Anti-Trust - Day By Day',
+                'file': 'http://www.americanparanoia.com/AntiTrust%20-%20DayByDay.mp3'
+            },
+            {
+                'name': 'Anti-Trust - Sick Inside',
+                'file': 'http://www.americanparanoia.com/AntiTrust%20-%20Sick%20Inside.mp3'
+            },
+            {
+                'name': 'Anti-Trust - Lost',
+                'file': 'http://www.americanparanoia.com/AntiTrust%20-%20Lost.mp3'
+            },
+            {
+                'name': 'Anti-Trust - Misery',
+                'file': 'http://www.americanparanoia.com/AntiTrust%20-%20Misery.mp3'
+            },
+            {
+                'name': 'Anti-Trust - Guilty as Charged',
+                'file': 'http://www.americanparanoia.com/AntiTrust%20-%20Guilty%20as%20Charged.mp3'
+            }
+        ];
+        new Playeros(element1, playlist1);
+
+    }());
+
+</script>
 </body>
 </html>
