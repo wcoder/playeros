@@ -10,8 +10,6 @@
      */
     w.Playeros = function (element, sources) {
 
-        // TODO: refactoring
-
         var currentSource = 0;
         var played = false;
 
