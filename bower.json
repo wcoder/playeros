@@ -1,0 +1,17 @@
+{
+  "name": "playeros",
+  "main": "playeros.js",
+  "version": "0.0.0",
+  "homepage": "https://github.com/wcoder/playeros",
+  "authors": [
+    "Evgeniy Pakalo <evgeniy.pakalo@gmail.com>"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}

@@ -8,10 +8,13 @@
      * @param sources
      * @constructor
      */
-    w.Playeros = function (element, sources) {
+    w.Playeros = function (element, sources, options) {
 
         var currentSource = 0;
         var played = false;
+        var settings = {
+            volume: 0.5
+        };
 
         var play = element.querySelector('.playeros-play');
         var volume = element.querySelector('.playeros-range');
@@ -44,6 +47,14 @@
             return m + '.' + s + 'sec';
         };
 
+
+        var init = function () {
+            _.extend(settings, options);
+
+
+            volume.value = settings.volume * 10;
+        };
+
         play.onclick = function () {
             if (!played) {
                 playCurrentSource();
@@ -74,20 +85,25 @@
         };
 
         player.onplaying = function () {
-            player.volume = 0.5;
             endTime.innerText = durationToStringConverter(player.duration);
         };
 
         player.ontimeupdate = function () {
-            progress.max = Math.floor(player.duration);
-            progress.value = Math.floor(player.currentTime);
-            currentTime.innerText = durationToStringConverter(player.currentTime);
+            try {
+                progress.max = Math.floor(player.duration);
+                progress.value = Math.floor(player.currentTime);
+                currentTime.innerText = durationToStringConverter(player.currentTime);
+            } catch (e) {
+                console.error(e);
+            }
         };
 
         player.onended = function () {
             nextSource();
             playCurrentSource();
         };
+
+        init();
     };
 
 }(window));
