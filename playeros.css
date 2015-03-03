@@ -1,0 +1,67 @@
+
+
+
+.playeros-panel * {
+    float: left;
+}
+.playeros-play {
+    display: inline-block;
+    background-color: blueviolet;
+    border: none;
+    width: 50px;
+    height: 50px;
+}
+.playeros-play:after {
+    content: '>';
+}
+.playeros-play-pause:after {
+    content: '||';
+}
+/*.playeros-play-stop:after {*/
+    /*content: '[]';*/
+/*}*/
+.playeros-prev {
+    display: inline-block;
+    background-color: aquamarine;
+    border: none;
+    width: 50px;
+    height: 50px;
+}
+.playeros-prev:after {
+    content: '<<';
+}
+.playeros-next {
+    display: inline-block;
+    background-color: aquamarine;
+    border: none;
+    width: 50px;
+    height: 50px;
+}
+.playeros-next:after {
+    content: '>>';
+}
+.playeros-progress {
+    display: inline-block;
+    width: 200px;
+    height: 50px;
+    background-color: antiquewhite;
+}
+.playeros-progress > .playeros-progress-process {
+    display: inline-block;
+    width: 0px;
+    height: 50px;
+    background-color: brown;
+}
+.playeros-composition {
+    clear: both;
+    display: block;
+    color: blueviolet;
+}
+.playeros-time {
+    clear: both;
+    display: block;
+    color: gray;
+}
+.playeros-time-current:after {
+    content: ' / ';
+}

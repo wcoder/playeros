@@ -3,26 +3,11 @@
 <head lang="en">
     <meta charset="UTF-8">
     <title>Playeros</title>
+    <link rel="stylesheet" href="playeros.css"/>
 </head>
 <body>
 
-<div id="playeros">
-
-    <audio class="playeros-player" preload="metadata" type="audio/mpeg"></audio>
-    <div>
-        <button class="playeros-play">></button>
-        <input type="range" class="playeros-range" min="0" max="10" step="1">
-        <progress class="playeros-progress"></progress>
-        <p>
-            <span class="playeros-currenttime"></span> / <span class="playeros-endtime"></span>
-        </p>
-
-        <p class="playeros-composition"></p>
-        <button class="playeros-back"><<</button>
-        <button class="playeros-next">>></button>
-    </div>
-
-</div>
+<div id="playeros"></div>
 
 
 <script src="bower_components/underscore/underscore-min.js"></script>
