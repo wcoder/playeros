@@ -3,9 +3,9 @@
 
     var helper = {
         durationToStringConverter: function (v) {
-            var s = parseInt(v % 60);
             var m = parseInt((v / 60) % 60);
-            return m + '.' + s + 'min';
+            var s = parseInt(v % 60);
+            return m + '.' + s;
         },
         createElement: function (tagName, className, parentElement) {
             var e = document.createElement(tagName);
@@ -44,6 +44,8 @@
             nextCallback(self, e);
         });
 
+        time.style.visibility = 'hidden';
+
         /* public */
 
         this.panel = panel;
@@ -70,6 +72,7 @@
             currentTime.innerText = value;
         };
         this.setEndTime = function (value) {
+            time.style.visibility = 'visible';
             endTime.innerText = value;
         };
     }
@@ -145,8 +148,11 @@
 
         function playCurrentSource() {
             changeCurrentSource();
-            player.play();
-            panel.play();
+
+            if (isPlayed) {
+                player.play();
+                panel.play();
+            }
         }
 
         function changeCurrentSource() {

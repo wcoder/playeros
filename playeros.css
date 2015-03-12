@@ -15,7 +15,7 @@
 }
 .playeros-play {
     display: inline-block;
-    background-color: blueviolet;
+    background-color: #8a2be2;
     border: none;
     width: 50px;
     height: 50px;
@@ -27,12 +27,12 @@
 .playeros-play-pause:after {
     content: '\f04c';
 }
-/*.playeros-play-stop:after {*/
-    /*content: '[]';*/
-/*}*/
+/*.playeros-play-stop:after {
+    content: '\f04d';
+}*/
 .playeros-prev {
     display: inline-block;
-    background-color: aquamarine;
+    background-color: #7fffd4;
     border: none;
     width: 50px;
     height: 50px;
@@ -43,7 +43,7 @@
 }
 .playeros-next {
     display: inline-block;
-    background-color: aquamarine;
+    background-color: #7fffd4;
     border: none;
     width: 50px;
     height: 50px;
@@ -56,16 +56,16 @@
     display: inline-block;
     width: 200px;
     height: 50px;
-    background-color: antiquewhite;
+    background-color: #faebd7;
 }
 .playeros-progress > .playeros-progress-process {
-    width: 0px;
+    width: 0;
     height: 50px;
-    background-color: brown;
+    background-color: #a52a2a;
     clear: both;
 }
 .playeros-progress > .playeros-progress-buffer {
-    width: 0px;
+    width: 0;
     height: 50px;
     background-color: #ffffff;
     opacity: .4;
@@ -75,12 +75,12 @@
 .playeros-composition {
     clear: both;
     display: block;
-    color: blueviolet;
+    color: #8a2be2;
 }
 .playeros-time {
     clear: both;
     display: block;
-    color: gray;
+    color: #808080;
 }
 .playeros-time-current:after {
     content: ' / ';
