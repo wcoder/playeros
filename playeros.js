@@ -106,6 +106,7 @@
             p.onplaying = playerStart;
             p.ontimeupdate = playerProgress;
             p.onended = next;
+            p.on
             return p;
         }
 
