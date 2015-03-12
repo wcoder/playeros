@@ -28,6 +28,7 @@
             next = helper.createElement('button', 'playeros-next', panel),
             progress = helper.createElement('div', 'playeros-progress', panel),
             progressProcess = helper.createElement('div', 'playeros-progress-process', progress),
+            progressBuffer = helper.createElement('div', 'playeros-progress-buffer', progress),
             composition = helper.createElement('div', 'playeros-composition', panel),
             time = helper.createElement('div', 'playeros-time', panel),
             currentTime = helper.createElement('div', 'playeros-time-current', time),
@@ -58,6 +59,9 @@
         //};
         this.progress = function (percent) {
             progressProcess.style.width = percent + '%';
+        };
+        this.buffer = function(percent) {
+            progressBuffer.style.width = percent + '%';
         };
         this.changeComposition = function (value) {
             composition.innerText = value;
@@ -104,9 +108,9 @@
             p.type = 'audio/mpe';
             p.volume = settings.volume;
             p.onplaying = playerStart;
-            p.ontimeupdate = playerProgress;
+            p.ontimeupdate = playerTimeUpdate;
+            p.onprogress = playerProgress;
             p.onended = next;
-            p.on
             return p;
         }
 
@@ -151,9 +155,17 @@
             player.src = source.file;
         }
 
+        function playerTimeUpdate() {
+            if (player.duration > 0) {
+                panel.progress((player.currentTime / player.duration) * 100);
+                panel.setCurrentTime(helper.durationToStringConverter(player.currentTime));
+            }
+        }
+
         function playerProgress() {
-            panel.progress((player.currentTime * 100) / player.duration);
-            panel.setCurrentTime(helper.durationToStringConverter(player.currentTime));
+            if (player.duration > 0) {
+                panel.buffer((player.buffered.end(player.buffered.length - 1) / player.duration) * 100);
+            }
         }
 
         function playerStart() {

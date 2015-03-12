@@ -59,10 +59,18 @@
     background-color: antiquewhite;
 }
 .playeros-progress > .playeros-progress-process {
-    display: inline-block;
     width: 0px;
     height: 50px;
     background-color: brown;
+    clear: both;
+}
+.playeros-progress > .playeros-progress-buffer {
+    width: 0px;
+    height: 50px;
+    background-color: #ffffff;
+    opacity: .4;
+    margin-top: -50px;
+    clear: both;
 }
 .playeros-composition {
     clear: both;
