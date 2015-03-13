@@ -10,9 +10,15 @@
     font-style: normal;
 }
 
-.playeros-panel * {
-    float: left;
+#playeros {
+    border: 1px solid #c0c0c0;
+    position: relative;
 }
+
+.playeros-panel {
+    height: 100px;
+}
+
 .playeros-play {
     display: inline-block;
     background-color: #8a2be2;
@@ -20,6 +26,9 @@
     width: 50px;
     height: 50px;
     font: normal normal normal 14px/1 FontAwesome;
+    padding: 0;
+    position: absolute;
+    left: 0;
 }
 .playeros-play:after {
     content: '\f04b';
@@ -37,6 +46,8 @@
     width: 50px;
     height: 50px;
     font: normal normal normal 14px/1 FontAwesome;
+    position: absolute;
+    left: 50px;
 }
 .playeros-prev:after {
     content: '\f04a';
@@ -48,6 +59,8 @@
     width: 50px;
     height: 50px;
     font: normal normal normal 14px/1 FontAwesome;
+    position: absolute;
+    left: 100px;
 }
 .playeros-next:after {
     content: '\f04e';
@@ -57,12 +70,13 @@
     width: 200px;
     height: 50px;
     background-color: #faebd7;
+    position: absolute;
+    left: 150px;
 }
 .playeros-progress > .playeros-progress-process {
     width: 0;
     height: 50px;
     background-color: #a52a2a;
-    clear: both;
 }
 .playeros-progress > .playeros-progress-buffer {
     width: 0;
@@ -70,17 +84,23 @@
     background-color: #ffffff;
     opacity: .4;
     margin-top: -50px;
-    clear: both;
 }
 .playeros-composition {
-    clear: both;
     display: block;
     color: #8a2be2;
+    height: 25px;
+    position: absolute;
+    top: 50px;
 }
 .playeros-time {
-    clear: both;
     display: block;
     color: #808080;
+    line-height: 25px;
+    position: absolute;
+    top: 75px;
+}
+.playeros-time * {
+    display: inline-block;
 }
 .playeros-time-current:after {
     content: ' / ';
