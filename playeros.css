@@ -105,3 +105,21 @@
 .playeros-time-current:after {
     content: ' / ';
 }
+
+.playeros-playlist {
+    list-style-type: none;
+    padding: 0;
+    margin-bottom: -1px;
+}
+.playeros-playlist-item {
+    line-height: 40px;
+    padding: 0 10px;
+    background-color: #f6f6f6;
+    border-bottom: 1px solid #ccc;
+}
+.playeros-playlist-item:hover {
+    cursor: pointer;
+}
+.playeros-playlist-item-current {
+    background-color: #ccc;
+}

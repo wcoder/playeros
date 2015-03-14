@@ -77,6 +77,44 @@
         };
     }
 
+    function Playlist(sources, selectItemCallback) {
+
+        /* private */
+
+        var self = this,
+            playlist = helper.createElement('ul', 'playeros-playlist');
+
+        /* public */
+
+        this.playlist = playlist;
+
+        this.addItem = function (item) {
+            var elem = helper.createElement('li', 'playeros-playlist-item', playlist);
+            var index = playlist.children.length - 1;
+            elem.addEventListener('click', function (e) {
+                selectItemCallback(self, e);
+            });
+            elem.innerText = item.name;
+            elem.attributes['data-index'] = index;
+        };
+        this.setList = function (list) {
+            _(list).forEach(function(item) {
+                self.addItem(item);
+            });
+        };
+        this.markItemByIndex = function (index) {
+            _(playlist.children).forEach(function(item, itemIndex) {
+                if (itemIndex == index) {
+                    item.className = 'playeros-playlist-item playeros-playlist-item-current';
+                } else {
+                    item.className = 'playeros-playlist-item';
+                }
+            });
+        };
+
+        this.setList(sources);
+    }
+
 
     /**
      * Class for create custom HTML5 audio player
@@ -94,6 +132,7 @@
                 volume: 0.5
             },
             panel = new ControlPanel(play, prev, next),
+            playlist = new Playlist(sources, selectItem),
             player = createPlayer();
 
         (function init() {
@@ -102,6 +141,7 @@
             changeCurrentSource();
 
             element.appendChild(panel.panel);
+            element.appendChild(playlist.playlist);
         }());
 
 
@@ -146,6 +186,14 @@
             playCurrentSource();
         }
 
+        function selectItem(o, e) {
+            var index = e.target.attributes['data-index'];
+
+            currentSourceIndex = index;
+            isPlayed = true;
+            playCurrentSource();
+        }
+
         function playCurrentSource() {
             changeCurrentSource();
 
@@ -158,6 +206,7 @@
         function changeCurrentSource() {
             var source = sources[currentSourceIndex];
             panel.changeComposition(source.name);
+            playlist.markItemByIndex(currentSourceIndex);
             player.src = source.file;
         }
 
