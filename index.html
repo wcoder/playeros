@@ -20,6 +20,8 @@
     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium aliquam blanditiis deserunt distinctio est
         ex fuga harum hic impedit inventore nihil, odit officiis pariatur quia quibusdam quos sed sint voluptatum.</p>
 
+    <div id="playeros2"></div>
+
     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Enim incidunt libero sequi sunt ut! Accusamus aliquid
         assumenda commodi corporis debitis dignissimos distinctio dolore doloremque est et eum ex facilis harum in ipsam
         iure iusto magni maxime odio, officiis perferendis perspiciatis quibusdam quod repellendus suscipit ullam vel
@@ -69,6 +71,23 @@
             }
         ];
         new Playeros(element1, playlist1);
+
+        var element2 = document.querySelector('#playeros2');
+        var playlist2 = [
+            {
+                'name': 'Anti-Trust - Lost',
+                'file': 'http://www.americanparanoia.com/AntiTrust%20-%20Lost.mp3'
+            },
+            {
+                'name': 'Anti-Trust - Misery',
+                'file': 'http://www.americanparanoia.com/AntiTrust%20-%20Misery.mp3'
+            },
+            {
+                'name': 'Anti-Trust - Guilty as Charged',
+                'file': 'http://www.americanparanoia.com/AntiTrust%20-%20Guilty%20as%20Charged.mp3'
+            }
+        ];
+        new Playeros(element2, playlist2);
 
     }());
 

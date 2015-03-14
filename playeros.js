@@ -142,6 +142,7 @@
 
             element.appendChild(panel.panel);
             element.appendChild(playlist.playlist);
+            element.className = 'playeros';
         }());
 
 
