@@ -17,7 +17,7 @@
 }
 
 .playeros-panel {
-    height: 100px;
+    height: 50px;
 }
 
 .playeros-play {
@@ -92,6 +92,8 @@
     height: 25px;
     position: absolute;
     top: 50px;
+
+    display: none;
 }
 .playeros-time {
     display: block;
@@ -99,6 +101,8 @@
     line-height: 25px;
     position: absolute;
     top: 75px;
+
+    display: none;
 }
 .playeros-time * {
     display: inline-block;
@@ -110,13 +114,18 @@
 .playeros-playlist {
     list-style-type: none;
     padding: 0;
-    margin-bottom: -1px;
+    margin: 0;
+    max-height: 300px;
+    overflow-y: scroll;
 }
 .playeros-playlist-item {
     line-height: 40px;
     padding: 0 10px;
     background-color: #f6f6f6;
     border-bottom: 1px solid #ccc;
+}
+.playeros-playlist-item:last-child {
+    border-bottom: none;
 }
 .playeros-playlist-item:hover {
     cursor: pointer;
