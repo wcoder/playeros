@@ -13,6 +13,7 @@
 #playeros {
     border: 1px solid #c0c0c0;
     position: relative;
+    width: 350px;
 }
 
 .playeros-panel {
