@@ -4,7 +4,7 @@ $panel-button-width:    40px;
 $panel-button-height:   40px;
 $playlist-item-height:  30px;
 
-$player-border-color:   #c0c0c0;
+$player-border-color:   #c2c2c2;
 
 
 @font-face {
@@ -26,27 +26,37 @@ $player-border-color:   #c0c0c0;
 
 .playeros-panel {
 	height: $panel-button-height;
+	background-image: -webkit-linear-gradient(#f2f2f2,#deddde);
+	border-bottom: 1px solid $player-border-color;
 }
 
 .playeros-panel-button {
-	background-color: #8a2be2;
 	border: none;
 	width: $panel-button-width;
 	height: $panel-button-height;
+	line-height: $panel-button-height;
 	padding: 0;
 	position: absolute;
+	background: transparent;
 	outline: none;
+	color: #6b6b6b;
+	border-right: 1px solid $player-border-color;
 
 	font-family: 'icomoon';
 	font-style: normal;
 	font-weight: normal;
 	font-variant: normal;
+	font-size: 17px;
 	text-transform: none;
 	line-height: 1;
 
 	/* Better Font Rendering =========== */
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
+
+	&:hover {
+		background-image: -webkit-linear-gradient(#deddde,#f2f2f2);
+	}
 }
 
 .playeros-play {
@@ -85,22 +95,22 @@ $player-border-color:   #c0c0c0;
 	display: inline-block;
 	width: $player-width - ($panel-button-width * 3);
 	height: $panel-button-height;
-	background-color: #faebd7;
 	position: absolute;
 	left: $panel-button-height * 3;
+	background-image: -webkit-linear-gradient(#bcbcbc, #9a9a9a);
 
 	.playeros-progress-process {
 		width: 0;
 		height: $panel-button-height;
-		background-color: #a52a2a;
+		background-image: -webkit-linear-gradient(#88888b, #737373);
 	}
 
 	.playeros-progress-buffer {
 		width: 0;
 		height: $panel-button-height;
-		background-color: #ffffff;
-		opacity: .4;
 		margin-top: -$panel-button-height;
+		opacity: 0.4;
+		background-image: -webkit-linear-gradient(#b1b1b1, #8a8a8a);
 	}
 }
 .playeros-composition {
@@ -138,6 +148,8 @@ $player-border-color:   #c0c0c0;
 	line-height: $playlist-item-height;
 	padding: 0 10px;
 	background-color: #f6f6f6;
+	color: #777777;
+	font-size: 12px;
 	border-bottom: 1px solid $player-border-color;
 
 	&:last-child {
@@ -149,4 +161,5 @@ $player-border-color:   #c0c0c0;
 }
 .playeros-playlist-item-current {
 	background-color: #ccc;
+	color: #ffffff;
 }

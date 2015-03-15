@@ -6,30 +6,38 @@
   font-style: normal; }
 
 .playeros {
-  border: 1px solid #c0c0c0;
+  border: 1px solid #c2c2c2;
   position: relative;
   width: 300px; }
 
 .playeros-panel {
-  height: 40px; }
+  height: 40px;
+  background-image: -webkit-linear-gradient(#f2f2f2, #deddde);
+  border-bottom: 1px solid #c2c2c2; }
 
 .playeros-panel-button, .playeros-play, .playeros-prev, .playeros-next {
-  background-color: #8a2be2;
   border: none;
   width: 40px;
   height: 40px;
+  line-height: 40px;
   padding: 0;
   position: absolute;
+  background: transparent;
   outline: none;
+  color: #6b6b6b;
+  border-right: 1px solid #c2c2c2;
   font-family: 'icomoon';
   font-style: normal;
   font-weight: normal;
   font-variant: normal;
+  font-size: 17px;
   text-transform: none;
   line-height: 1;
   /* Better Font Rendering =========== */
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale; }
+  .playeros-panel-button:hover, .playeros-play:hover, .playeros-prev:hover, .playeros-next:hover {
+    background-image: -webkit-linear-gradient(#deddde, #f2f2f2); }
 
 .playeros-play {
   left: 0; }
@@ -56,19 +64,19 @@
   display: inline-block;
   width: 180px;
   height: 40px;
-  background-color: #faebd7;
   position: absolute;
-  left: 120px; }
+  left: 120px;
+  background-image: -webkit-linear-gradient(#bcbcbc, #9a9a9a); }
   .playeros-progress .playeros-progress-process {
     width: 0;
     height: 40px;
-    background-color: #a52a2a; }
+    background-image: -webkit-linear-gradient(#88888b, #737373); }
   .playeros-progress .playeros-progress-buffer {
     width: 0;
     height: 40px;
-    background-color: #ffffff;
-    opacity: .4;
-    margin-top: -40px; }
+    margin-top: -40px;
+    opacity: 0.4;
+    background-image: -webkit-linear-gradient(#b1b1b1, #8a8a8a); }
 
 .playeros-composition {
   color: #8a2be2;
@@ -100,11 +108,14 @@
   line-height: 30px;
   padding: 0 10px;
   background-color: #f6f6f6;
-  border-bottom: 1px solid #c0c0c0; }
+  color: #777777;
+  font-size: 12px;
+  border-bottom: 1px solid #c2c2c2; }
   .playeros-playlist-item:last-child {
     border-bottom: none; }
   .playeros-playlist-item:hover {
     cursor: pointer; }
 
 .playeros-playlist-item-current {
-  background-color: #ccc; }
+  background-color: #ccc;
+  color: #ffffff; }
