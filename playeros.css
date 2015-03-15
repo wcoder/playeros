@@ -87,7 +87,6 @@
     margin-top: -50px;
 }
 .playeros-composition {
-    display: block;
     color: #8a2be2;
     height: 25px;
     position: absolute;
@@ -96,7 +95,6 @@
     display: none;
 }
 .playeros-time {
-    display: block;
     color: #808080;
     line-height: 25px;
     position: absolute;
@@ -116,7 +114,7 @@
     padding: 0;
     margin: 0;
     max-height: 300px;
-    overflow-y: scroll;
+    overflow-y: auto;
 }
 .playeros-playlist-item {
     line-height: 40px;
