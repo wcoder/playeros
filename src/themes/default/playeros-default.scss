@@ -1,0 +1,143 @@
+$player-width:          300px;
+$player-height:         300px;
+$panel-button-width:    40px;
+$panel-button-height:   40px;
+$playlist-item-height:  30px;
+
+$player-border-color:   #c0c0c0;
+
+
+@font-face {
+	font-family: 'FontAwesome';
+	src: url('../../../fonts/fontawesome-webfont.eot?v=4.3.0');
+	src: url('../../../fonts/fontawesome-webfont.eot?#iefix&v=4.3.0') format('embedded-opentype'),
+	url('../../../fonts/fontawesome-webfont.woff2?v=4.3.0') format('woff2'),
+	url('../../../fonts/fontawesome-webfont.woff?v=4.3.0') format('woff'),
+	url('../../../fonts/fontawesome-webfont.ttf?v=4.3.0') format('truetype'),
+	url('../../../fonts/fontawesome-webfont.svg?v=4.3.0#fontawesomeregular') format('svg');
+	font-weight: normal;
+	font-style: normal;
+}
+
+.playeros {
+	border: 1px solid $player-border-color;
+	position: relative;
+	width: $player-width;
+}
+
+.playeros-panel {
+	height: $panel-button-height;
+}
+
+.playeros-panel-button {
+	background-color: #8a2be2;
+	border: none;
+	width: $panel-button-width;
+	height: $panel-button-height;
+	font: normal normal normal 14px/1 FontAwesome;
+	padding: 0;
+	position: absolute;
+	outline: none;
+}
+
+.playeros-play {
+	@extend .playeros-panel-button;
+	left: 0;
+
+	&:after {
+		content: '\f04b';
+	}
+}
+.playeros-play-pause {
+	&:after {
+		content: '\f04c';
+	}
+}
+/*.playeros-play-stop:after {
+    content: '\f04d';
+}*/
+.playeros-prev {
+	@extend .playeros-panel-button;
+	left: $panel-button-height;
+
+	&:after {
+		content: '\f04a';
+	}
+}
+.playeros-next {
+	@extend .playeros-panel-button;
+	left: $panel-button-height * 2;
+
+	&:after {
+		content: '\f04e';
+	}
+}
+.playeros-progress {
+	display: inline-block;
+	width: $player-width - ($panel-button-width * 3);
+	height: $panel-button-height;
+	background-color: #faebd7;
+	position: absolute;
+	left: $panel-button-height * 3;
+
+	.playeros-progress-process {
+		width: 0;
+		height: $panel-button-height;
+		background-color: #a52a2a;
+	}
+
+	.playeros-progress-buffer {
+		width: 0;
+		height: $panel-button-height;
+		background-color: #ffffff;
+		opacity: .4;
+		margin-top: -$panel-button-height;
+	}
+}
+.playeros-composition {
+	color: #8a2be2;
+	height: $panel-button-height / 2;
+	position: absolute;
+	top: $panel-button-height;
+	display: none;
+}
+.playeros-time {
+	color: #808080;
+	line-height: $panel-button-height / 2;
+	position: absolute;
+	top: $panel-button-height + ($panel-button-height / 2);
+	display: none;
+
+	* {
+		display: inline-block;
+	}
+}
+.playeros-time-current {
+	&:after {
+		content: ' / ';
+	}
+}
+
+.playeros-playlist {
+	list-style-type: none;
+	padding: 0;
+	margin: 0;
+	max-height: $player-height;
+	overflow-y: auto;
+}
+.playeros-playlist-item {
+	line-height: $playlist-item-height;
+	padding: 0 10px;
+	background-color: #f6f6f6;
+	border-bottom: 1px solid $player-border-color;
+
+	&:last-child {
+		border-bottom: none;
+	}
+	&:hover {
+		cursor: pointer;
+	}
+}
+.playeros-playlist-item-current {
+	background-color: #ccc;
+}

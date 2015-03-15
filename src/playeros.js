@@ -1,4 +1,4 @@
-(function (w) {
+(function (w, _) {
     'use strict';
 
     var helper = {
@@ -10,7 +10,7 @@
         createElement: function (tagName, className, parentElement) {
             var e = document.createElement(tagName);
             e.className = className;
-            if (typeof parentElement != 'undefined') {
+            if (typeof parentElement !== 'undefined') {
                 parentElement.appendChild(e);
             }
             return e;
@@ -44,6 +44,7 @@
             nextCallback(self, e);
         });
 
+	    play.title = 'Play/Pause';
         time.style.visibility = 'hidden';
 
         /* public */
@@ -104,7 +105,7 @@
         };
         this.markItemByIndex = function (index) {
             _(playlist.children).forEach(function(item, itemIndex) {
-                if (itemIndex == index) {
+                if (itemIndex === index) {
                     item.className = 'playeros-playlist-item playeros-playlist-item-current';
                 } else {
                     item.className = 'playeros-playlist-item';
@@ -170,7 +171,7 @@
         }
 
         function prev() {
-            if (currentSourceIndex == 0) {
+            if (currentSourceIndex === 0) {
                 currentSourceIndex = sources.length - 1;
             } else {
                 currentSourceIndex--;
@@ -188,9 +189,7 @@
         }
 
         function selectItem(o, e) {
-            var index = e.target.attributes['data-index'];
-
-            currentSourceIndex = index;
+            currentSourceIndex = e.target.attributes['data-index'];
             isPlayed = true;
             playCurrentSource();
         }
@@ -229,4 +228,4 @@
         }
     };
 
-}(window));
+}(window, window._));

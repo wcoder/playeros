@@ -1,0 +1,102 @@
+@font-face {
+  font-family: 'FontAwesome';
+  src: url('../../../fonts/fontawesome-webfont.eot?v=4.3.0');
+  src: url('../../../fonts/fontawesome-webfont.eot?#iefix&v=4.3.0') format('embedded-opentype'), url('../../../fonts/fontawesome-webfont.woff2?v=4.3.0') format('woff2'), url('../../../fonts/fontawesome-webfont.woff?v=4.3.0') format('woff'), url('../../../fonts/fontawesome-webfont.ttf?v=4.3.0') format('truetype'), url('../../../fonts/fontawesome-webfont.svg?v=4.3.0#fontawesomeregular') format('svg');
+  font-weight: normal;
+  font-style: normal; }
+
+.playeros {
+  border: 1px solid #c0c0c0;
+  position: relative;
+  width: 300px; }
+
+.playeros-panel {
+  height: 40px; }
+
+.playeros-panel-button, .playeros-play, .playeros-prev, .playeros-next {
+  background-color: #8a2be2;
+  border: none;
+  width: 40px;
+  height: 40px;
+  font: normal normal normal 14px/1 FontAwesome;
+  padding: 0;
+  position: absolute;
+  outline: none; }
+
+.playeros-play {
+  left: 0; }
+  .playeros-play:after {
+    content: '\f04b'; }
+
+.playeros-play-pause:after {
+  content: '\f04c'; }
+
+/*.playeros-play-stop:after {
+    content: '\f04d';
+}*/
+.playeros-prev {
+  left: 40px; }
+  .playeros-prev:after {
+    content: '\f04a'; }
+
+.playeros-next {
+  left: 80px; }
+  .playeros-next:after {
+    content: '\f04e'; }
+
+.playeros-progress {
+  display: inline-block;
+  width: 180px;
+  height: 40px;
+  background-color: #faebd7;
+  position: absolute;
+  left: 120px; }
+  .playeros-progress .playeros-progress-process {
+    width: 0;
+    height: 40px;
+    background-color: #a52a2a; }
+  .playeros-progress .playeros-progress-buffer {
+    width: 0;
+    height: 40px;
+    background-color: #ffffff;
+    opacity: .4;
+    margin-top: -40px; }
+
+.playeros-composition {
+  color: #8a2be2;
+  height: 20px;
+  position: absolute;
+  top: 40px;
+  display: none; }
+
+.playeros-time {
+  color: #808080;
+  line-height: 20px;
+  position: absolute;
+  top: 60px;
+  display: none; }
+  .playeros-time * {
+    display: inline-block; }
+
+.playeros-time-current:after {
+  content: ' / '; }
+
+.playeros-playlist {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+  max-height: 300px;
+  overflow-y: auto; }
+
+.playeros-playlist-item {
+  line-height: 30px;
+  padding: 0 10px;
+  background-color: #f6f6f6;
+  border-bottom: 1px solid #c0c0c0; }
+  .playeros-playlist-item:last-child {
+    border-bottom: none; }
+  .playeros-playlist-item:hover {
+    cursor: pointer; }
+
+.playeros-playlist-item-current {
+  background-color: #ccc; }
