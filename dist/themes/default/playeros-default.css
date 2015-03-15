@@ -1,7 +1,7 @@
 @font-face {
-  font-family: 'FontAwesome';
-  src: url('../../../fonts/fontawesome-webfont.eot?v=4.3.0');
-  src: url('../../../fonts/fontawesome-webfont.eot?#iefix&v=4.3.0') format('embedded-opentype'), url('../../../fonts/fontawesome-webfont.woff2?v=4.3.0') format('woff2'), url('../../../fonts/fontawesome-webfont.woff?v=4.3.0') format('woff'), url('../../../fonts/fontawesome-webfont.ttf?v=4.3.0') format('truetype'), url('../../../fonts/fontawesome-webfont.svg?v=4.3.0#fontawesomeregular') format('svg');
+  font-family: 'icomoon';
+  src: url('fonts/icomoon.eot?-5tpscj');
+  src: url('fonts/icomoon.eot?#iefix-5tpscj') format('embedded-opentype'), url('fonts/icomoon.woff?-5tpscj') format('woff'), url('fonts/icomoon.ttf?-5tpscj') format('truetype'), url('fonts/icomoon.svg?-5tpscj#icomoon') format('svg');
   font-weight: normal;
   font-style: normal; }
 
@@ -18,31 +18,39 @@
   border: none;
   width: 40px;
   height: 40px;
-  font: normal normal normal 14px/1 FontAwesome;
   padding: 0;
   position: absolute;
-  outline: none; }
+  outline: none;
+  font-family: 'icomoon';
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale; }
 
 .playeros-play {
   left: 0; }
   .playeros-play:after {
-    content: '\f04b'; }
+    content: "\ea1c"; }
 
 .playeros-play-pause:after {
-  content: '\f04c'; }
+  content: "\ea1d"; }
 
 /*.playeros-play-stop:after {
-    content: '\f04d';
+    content: "\ea1e";
 }*/
 .playeros-prev {
   left: 40px; }
   .playeros-prev:after {
-    content: '\f04a'; }
+    content: "\ea1f"; }
 
 .playeros-next {
   left: 80px; }
   .playeros-next:after {
-    content: '\f04e'; }
+    content: "\ea20"; }
 
 .playeros-progress {
   display: inline-block;
