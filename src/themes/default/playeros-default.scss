@@ -18,6 +18,55 @@ $player-border-color:   #c2c2c2;
 	font-style: normal;
 }
 
+@mixin linear-gradient($color-from, $color-to, $type: vertical) {
+  @if $color-from and $color-to {
+
+    $alpha: alpha($color-to);
+    @if $alpha < 1 {
+      $color-rgb: change_color($color, $alpha: 1);
+      background-color: $color-rgb;
+    }
+    @else {
+      background-color: $color-to;
+    }
+
+    $ie-from: ie-hex-str($color-from);
+    $ie-to: ie-hex-str($color-to);
+
+    $webkit: 'left top, left bottom';
+    $spec: 'top';
+    $ie: 0;
+
+    @if $type == vertical {
+      $webkit: 'left top, left bottom';
+      $spec: 'top';
+      $ie: 0;
+    }
+    @if $type == horizontal {
+      $webkit: 'left top, right top';
+      $spec: 'to right';
+      $ie: 1;
+    }
+    @if $type == left-right {
+      $webkit: 'left top, right bottom';
+      $spec: '135deg';
+      $ie: 1;
+    }
+    @if $type == right-left {
+      $webkit: 'left bottom, right top';
+      $spec: '45deg';
+      $ie: 1;
+    }
+
+
+    background-image: -webkit-gradient($type, #{$webkit}, from($color-from), to($color-to));
+    background-image: -webkit-linear-gradient(#{$spec}, $color-from, $color-to);
+    background-image: linear-gradient(#{$spec}, $color-from, $color-to);
+    -ms-filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#{$ie-from}', endColorstr='#{$ie-to}', GradientType=#{$ie});
+
+  }
+}
+
 .playeros {
 	border: 1px solid $player-border-color;
 	position: relative;
@@ -26,7 +75,7 @@ $player-border-color:   #c2c2c2;
 
 .playeros-panel {
 	height: $panel-button-height;
-	background-image: -webkit-linear-gradient(#f2f2f2,#deddde);
+    @include linear-gradient(#f2f2f2,#deddde);
 	border-bottom: 1px solid $player-border-color;
 }
 
@@ -55,7 +104,7 @@ $player-border-color:   #c2c2c2;
 	-moz-osx-font-smoothing: grayscale;
 
 	&:hover {
-		background-image: -webkit-linear-gradient(#deddde,#f2f2f2);
+      @include linear-gradient(#deddde,#f2f2f2);
 	}
 }
 
@@ -97,12 +146,12 @@ $player-border-color:   #c2c2c2;
 	height: $panel-button-height;
 	position: absolute;
 	left: $panel-button-height * 3;
-	background-image: -webkit-linear-gradient(#bcbcbc, #9a9a9a);
+  @include linear-gradient(#bcbcbc, #9a9a9a);
 
 	.playeros-progress-process {
 		width: 0;
 		height: $panel-button-height;
-		background-image: -webkit-linear-gradient(#88888b, #737373);
+      @include linear-gradient(#88888b, #737373);
 	}
 
 	.playeros-progress-buffer {
@@ -110,7 +159,7 @@ $player-border-color:   #c2c2c2;
 		height: $panel-button-height;
 		margin-top: -$panel-button-height;
 		opacity: 0.4;
-		background-image: -webkit-linear-gradient(#b1b1b1, #8a8a8a);
+      @include linear-gradient(#b1b1b1, #8a8a8a);
 	}
 }
 .playeros-composition {
