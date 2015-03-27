@@ -12,7 +12,11 @@
 
 .playeros-panel {
   height: 40px;
-  background-image: -webkit-linear-gradient(#f2f2f2, #deddde);
+  background-color: #deddde;
+  background-image: -webkit-gradient(vertical, left top, left bottom, from(#f2f2f2), to(#deddde));
+  background-image: -webkit-linear-gradient(top, #f2f2f2, #deddde);
+  background-image: linear-gradient(top, #f2f2f2, #deddde);
+  -ms-filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#FFF2F2F2', endColorstr='#FFDEDDDE', GradientType=0);
   border-bottom: 1px solid #c2c2c2; }
 
 .playeros-panel-button, .playeros-play, .playeros-prev, .playeros-next {
@@ -37,7 +41,11 @@
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale; }
   .playeros-panel-button:hover, .playeros-play:hover, .playeros-prev:hover, .playeros-next:hover {
-    background-image: -webkit-linear-gradient(#deddde, #f2f2f2); }
+    background-color: #f2f2f2;
+    background-image: -webkit-gradient(vertical, left top, left bottom, from(#deddde), to(#f2f2f2));
+    background-image: -webkit-linear-gradient(top, #deddde, #f2f2f2);
+    background-image: linear-gradient(top, #deddde, #f2f2f2);
+    -ms-filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#FFDEDDDE', endColorstr='#FFF2F2F2', GradientType=0); }
 
 .playeros-play {
   left: 0; }
@@ -66,17 +74,29 @@
   height: 40px;
   position: absolute;
   left: 120px;
-  background-image: -webkit-linear-gradient(#bcbcbc, #9a9a9a); }
+  background-color: #9a9a9a;
+  background-image: -webkit-gradient(vertical, left top, left bottom, from(#bcbcbc), to(#9a9a9a));
+  background-image: -webkit-linear-gradient(top, #bcbcbc, #9a9a9a);
+  background-image: linear-gradient(top, #bcbcbc, #9a9a9a);
+  -ms-filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#FFBCBCBC', endColorstr='#FF9A9A9A', GradientType=0); }
   .playeros-progress .playeros-progress-process {
     width: 0;
     height: 40px;
-    background-image: -webkit-linear-gradient(#88888b, #737373); }
+    background-color: #737373;
+    background-image: -webkit-gradient(vertical, left top, left bottom, from(#88888b), to(#737373));
+    background-image: -webkit-linear-gradient(top, #88888b, #737373);
+    background-image: linear-gradient(top, #88888b, #737373);
+    -ms-filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#FF88888B', endColorstr='#FF737373', GradientType=0); }
   .playeros-progress .playeros-progress-buffer {
     width: 0;
     height: 40px;
     margin-top: -40px;
     opacity: 0.4;
-    background-image: -webkit-linear-gradient(#b1b1b1, #8a8a8a); }
+    background-color: #8a8a8a;
+    background-image: -webkit-gradient(vertical, left top, left bottom, from(#b1b1b1), to(#8a8a8a));
+    background-image: -webkit-linear-gradient(top, #b1b1b1, #8a8a8a);
+    background-image: linear-gradient(top, #b1b1b1, #8a8a8a);
+    -ms-filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#FFB1B1B1', endColorstr='#FF8A8A8A', GradientType=0); }
 
 .playeros-composition {
   color: #8a2be2;
