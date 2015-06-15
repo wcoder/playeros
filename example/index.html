@@ -38,8 +38,8 @@
         var element1 = document.querySelector('#playeros');
         var playlist1 = [
             {
-                'name': 'Anti-Trust - No Privacy',
-                'file': 'http://www.americanparanoia.com/AntiTrust%20-%20NoPrivacy.mp3'
+                'name': 'In The Moment of Inspiration',
+                'file': 'https://amazingaudioplayer.com/wp-content/uploads/amazingaudioplayer/8/audios/In%20the%20Moment%20of%20Inspiration.mp3'
             },
             {
                 'name': 'Anti-Trust - I am You',
@@ -70,7 +70,7 @@
                 'file': 'http://www.americanparanoia.com/AntiTrust%20-%20Guilty%20as%20Charged.mp3'
             }
         ];
-        new Playeros(element1, playlist1);
+        new Playeros.createAudioPlayer(element1, playlist1);
 
         var element2 = document.querySelector('#playeros2');
         var playlist2 = [
@@ -87,7 +87,7 @@
                 'file': 'http://www.americanparanoia.com/AntiTrust%20-%20Guilty%20as%20Charged.mp3'
             }
         ];
-        new Playeros(element2, playlist2);
+        new Playeros.createAudioPlayer(element2, playlist2);
 
     }());
 

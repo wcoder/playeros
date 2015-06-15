@@ -139,3 +139,6 @@
 .playeros-playlist-item-current {
   background-color: #ccc;
   color: #ffffff; }
+
+.playeros-playlist-item-error {
+  color: #f00; }

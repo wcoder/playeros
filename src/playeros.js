@@ -17,6 +17,12 @@
         }
     };
 
+    w.Playeros = {
+        panel: ControlPanel,
+        playlist: Playlist,
+        createAudioPlayer: createAudioPlayer
+    };
+
     function ControlPanel(playCallback, prevCallback, nextCallback)
     {
         /* private */
@@ -103,12 +109,18 @@
                 self.addItem(item);
             });
         };
-        this.markItemByIndex = function (index) {
+        this.markItemByIndex = function (index, err) {
+            var classError = 'playeros-playlist-item-error',
+                classItem = 'playeros-playlist-item',
+                classItemError = 'playeros-playlist-item ' + classError,
+                classCurrentItem = classItem + ' playeros-playlist-item-current',
+                classCurrentItemError = classItem +' playeros-playlist-item-current ' + classError;
+
             _(playlist.children).forEach(function(item, itemIndex) {
                 if (itemIndex === index) {
-                    item.className = 'playeros-playlist-item playeros-playlist-item-current';
+                    item.className = !!err ? classCurrentItemError : classCurrentItem;
                 } else {
-                    item.className = 'playeros-playlist-item';
+                    item.className = (item.className.indexOf(classError) > -1) ? classItemError : classItem;
                 }
             });
         };
@@ -125,15 +137,15 @@
      * @param options
      * @constructor
      */
-    w.Playeros = function (element, sources, options) {
+    function createAudioPlayer(element, sources, options) {
 
         var currentSourceIndex = 0,
             isPlayed = false,
             settings = {
                 volume: 0.5
             },
-            panel = new ControlPanel(play, prev, next),
-            playlist = new Playlist(sources, selectItem),
+            panel = new w.Playeros.panel(play, prev, next),
+            playlist = new w.Playeros.playlist(sources, selectItem),
             player = createPlayer();
 
         (function init() {
@@ -156,6 +168,7 @@
             p.ontimeupdate = playerTimeUpdate;
             p.onprogress = playerProgress;
             p.onended = next;
+            p.onerror = playerError;
             return p;
         }
 
@@ -206,8 +219,8 @@
         function changeCurrentSource() {
             var source = sources[currentSourceIndex];
             panel.changeComposition(source.name);
-            playlist.markItemByIndex(currentSourceIndex);
-            player.src = source.file;
+            playlist.markItemByIndex(currentSourceIndex, false);
+            player.src = source.file;    
         }
 
         function playerTimeUpdate() {
@@ -226,6 +239,12 @@
         function playerStart() {
             panel.setEndTime(helper.durationToStringConverter(player.duration));
         }
-    };
+
+        function playerError(e) {
+            playlist.markItemByIndex(currentSourceIndex, e);
+            player.pause();
+            panel.pause();
+        }
+    }
 
 }(window, window._));
