@@ -146,21 +146,23 @@ $player-border-color:   #c2c2c2;
 	height: $panel-button-height;
 	position: absolute;
 	left: $panel-button-height * 3;
-  @include linear-gradient(#bcbcbc, #9a9a9a);
 
-	.playeros-progress-process {
-		width: 0;
-		height: $panel-button-height;
-      @include linear-gradient(#88888b, #737373);
-	}
+    @include linear-gradient(#bcbcbc, #9a9a9a);
 
-	.playeros-progress-buffer {
-		width: 0;
-		height: $panel-button-height;
-		margin-top: -$panel-button-height;
-		opacity: 0.4;
-      @include linear-gradient(#b1b1b1, #8a8a8a);
-	}
+    .playeros-progress-process {
+        width: 0;
+        height: $panel-button-height;
+        @include linear-gradient(#88888b, #737373);
+    }
+
+    .playeros-progress-buffer {
+        width: 0;
+        height: $panel-button-height;
+        opacity: 0.4;
+        position: absolute;
+      top: 0;
+        @include linear-gradient(#b1b1b1, #8a8a8a);
+    }
 }
 .playeros-composition {
 	color: #8a2be2;
@@ -214,4 +216,93 @@ $player-border-color:   #c2c2c2;
 }
 .playeros-playlist-item-error {
 	color: #f00;
+}
+
+
+
+input[type=range].playeros-spinner {
+	-webkit-appearance: none;
+	width: 100%;
+  background: transparent;
+  position: absolute;
+  top: 0;
+  height: $panel-button-height;
+}
+input[type=range].playeros-spinner:focus {
+	outline: none;
+}
+
+
+/* Webkit */
+input[type=range].playeros-spinner::-webkit-slider-runnable-track {
+	width: 100%;
+	height: $panel-button-height;
+	cursor: pointer;
+	animate: 0.2s;
+	background: transparent;
+}
+input[type=range].playeros-spinner::-webkit-slider-thumb {
+  height: $panel-button-height;
+  width: 1px;
+  background: #999;
+  cursor: pointer;
+
+  -webkit-appearance: none;
+}
+input[type=range].playeros-spinner:focus::-webkit-slider-runnable-track {
+  background: transparent;
+}
+
+/* Firefox */
+input[type=range].playeros-spinner::-moz-range-track {
+  width: 100%;
+  height: $panel-button-height;
+  cursor: pointer;
+  animate: 0.2s;
+  background: transparent;
+  border-radius: 0;
+}
+input[type=range].playeros-spinner::-moz-range-thumb {
+  height: $panel-button-height;
+  width: 1px;
+  background: #999;
+  cursor: pointer;
+
+  border-radius: 0px;
+  border: none;
+}
+input[type=range].playeros-spinner:focus::-moz-range-track {
+  background: transparent;
+}
+
+/* IE 10+ */
+input[type=range].playeros-spinner::-ms-track {
+  width: 100%;
+  height: $panel-button-height;
+  cursor: pointer;
+  animate: 0.2s;
+  background: transparent;
+  border: none;
+  border-color: transparent;
+  color: transparent;
+}
+input[type=range].playeros-spinner::-ms-fill-lower {
+  background: transparent;
+}
+input[type=range].playeros-spinner::-ms-fill-upper {
+  background: transparent;
+}
+/* TODO: fix it */
+input[type=range].playeros-spinner::-ms-thumb {
+  display: none;
+  /*height: $panel-button-height;
+  width: 1px;
+  background: #999;
+  cursor: pointer;*/
+}
+input[type=range].playeros-spinner:focus::-ms-fill-lower {
+  background: transparent;
+}
+input[type=range].playeros-spinner:focus::-ms-fill-upper {
+  background: transparent;
 }

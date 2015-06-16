@@ -90,8 +90,9 @@
   .playeros-progress .playeros-progress-buffer {
     width: 0;
     height: 40px;
-    margin-top: -40px;
     opacity: 0.4;
+    position: absolute;
+    top: 0;
     background-color: #8a8a8a;
     background-image: -webkit-gradient(vertical, left top, left bottom, from(#b1b1b1), to(#8a8a8a));
     background-image: -webkit-linear-gradient(top, #b1b1b1, #8a8a8a);
@@ -142,3 +143,83 @@
 
 .playeros-playlist-item-error {
   color: #f00; }
+
+input[type=range].playeros-spinner {
+  -webkit-appearance: none;
+  width: 100%;
+  background: transparent;
+  position: absolute;
+  top: 0;
+  height: 40px; }
+
+input[type=range].playeros-spinner:focus {
+  outline: none; }
+
+/* Webkit */
+input[type=range].playeros-spinner::-webkit-slider-runnable-track {
+  width: 100%;
+  height: 40px;
+  cursor: pointer;
+  animate: 0.2s;
+  background: transparent; }
+
+input[type=range].playeros-spinner::-webkit-slider-thumb {
+  height: 40px;
+  width: 1px;
+  background: #999;
+  cursor: pointer;
+  -webkit-appearance: none; }
+
+input[type=range].playeros-spinner:focus::-webkit-slider-runnable-track {
+  background: transparent; }
+
+/* Firefox */
+input[type=range].playeros-spinner::-moz-range-track {
+  width: 100%;
+  height: 40px;
+  cursor: pointer;
+  animate: 0.2s;
+  background: transparent;
+  border-radius: 0; }
+
+input[type=range].playeros-spinner::-moz-range-thumb {
+  height: 40px;
+  width: 1px;
+  background: #999;
+  cursor: pointer;
+  border-radius: 0px;
+  border: none; }
+
+input[type=range].playeros-spinner:focus::-moz-range-track {
+  background: transparent; }
+
+/* IE 10+ */
+input[type=range].playeros-spinner::-ms-track {
+  width: 100%;
+  height: 40px;
+  cursor: pointer;
+  animate: 0.2s;
+  background: transparent;
+  border: none;
+  border-color: transparent;
+  color: transparent; }
+
+input[type=range].playeros-spinner::-ms-fill-lower {
+  background: transparent; }
+
+input[type=range].playeros-spinner::-ms-fill-upper {
+  background: transparent; }
+
+/* TODO: fix it */
+input[type=range].playeros-spinner::-ms-thumb {
+  display: none;
+  /*height: $panel-button-height;
+  width: 1px;
+  background: #999;
+  cursor: pointer;*/ }
+
+input[type=range].playeros-spinner:focus::-ms-fill-lower {
+  background: transparent; }
+
+input[type=range].playeros-spinner:focus::-ms-fill-upper {
+  background: transparent; }

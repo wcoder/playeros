@@ -14,6 +14,15 @@
                 parentElement.appendChild(e);
             }
             return e;
+        },
+        createRangeElement: function (className, parentElement) {
+            var e = this.createElement('input', className + ' playeros-spinner', parentElement);
+            e.type = 'range';
+            e.max = 100;
+            e.min = 0;
+            e.step = 0.01;
+            e.value = 0;
+            return e;
         }
     };
 
@@ -23,7 +32,7 @@
         createAudioPlayer: createAudioPlayer
     };
 
-    function ControlPanel(playCallback, prevCallback, nextCallback)
+    function ControlPanel(playCallback, prevCallback, nextCallback, rewindCallback)
     {
         /* private */
 
@@ -33,8 +42,9 @@
             prev = helper.createElement('button', 'playeros-prev', panel),
             next = helper.createElement('button', 'playeros-next', panel),
             progress = helper.createElement('div', 'playeros-progress', panel),
-            progressProcess = helper.createElement('div', 'playeros-progress-process', progress),
             progressBuffer = helper.createElement('div', 'playeros-progress-buffer', progress),
+            progressProcess = helper.createElement('div', 'playeros-progress-process', progress),
+            progressRange = helper.createRangeElement('playeros-progress-spinner', progress),
             composition = helper.createElement('div', 'playeros-composition', panel),
             time = helper.createElement('div', 'playeros-time', panel),
             currentTime = helper.createElement('div', 'playeros-time-current', time),
@@ -48,6 +58,9 @@
         });
         next.addEventListener('click', function (e) {
             nextCallback(self, e);
+        });
+        progressRange.addEventListener('input', function (e) {
+            rewindCallback(self, e.target.value);
         });
 
 	    play.title = 'Play/Pause';
@@ -68,6 +81,7 @@
         //};
         this.progress = function (percent) {
             progressProcess.style.width = percent + '%';
+            progressRange.value = percent;
         };
         this.buffer = function(percent) {
             progressBuffer.style.width = percent + '%';
@@ -144,7 +158,7 @@
             settings = {
                 volume: 0.5
             },
-            panel = new w.Playeros.panel(play, prev, next),
+            panel = new w.Playeros.panel(play, prev, next, rewind),
             playlist = new w.Playeros.playlist(sources, selectItem),
             player = createPlayer();
 
@@ -201,6 +215,15 @@
             playCurrentSource();
         }
 
+        function rewind(panel, value) {
+            if (player.duration) {
+                player.currentTime = (value * player.duration) / 100;
+            } else {
+				value = 0;
+            }
+	        panel.progress(value);
+        }
+
         function selectItem(o, e) {
             currentSourceIndex = e.target.attributes['data-index'];
             isPlayed = true;
@@ -220,6 +243,8 @@
             var source = sources[currentSourceIndex];
             panel.changeComposition(source.name);
             playlist.markItemByIndex(currentSourceIndex, false);
+            panel.progress(0);
+	        panel.buffer(0);
             player.src = source.file;    
         }
 
