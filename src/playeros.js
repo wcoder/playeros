@@ -115,7 +115,7 @@
             elem.addEventListener('click', function (e) {
                 selectItemCallback(self, e);
             });
-            elem.innerText = item.name;
+            elem.textContent = item.name;
             elem.attributes['data-index'] = index;
         };
         this.setList = function (list) {
