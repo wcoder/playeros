@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>Playeros</title>
+    <!--<link rel="stylesheet" href="../bower_components/normalize.css/normalize.css"/>
+    <link rel="stylesheet" href="../dist/themes/default/playeros-default.css"/>-->
+</head>
+<body>
+
+<div style="width: 900px; margin: 20px auto">
+
+    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolor eum itaque libero nulla optio porro quibusdam
+        recusandae tenetur unde veniam.</p>
+
+    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Blanditiis, itaque.</p>
+
+    <div id="playeros1"></div>
+
+    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium aliquam blanditiis deserunt distinctio est
+        ex fuga harum hic impedit inventore nihil, odit officiis pariatur quia quibusdam quos sed sint voluptatum.</p>
+
+    <div id="playeros2"></div>
+
+    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Enim incidunt libero sequi sunt ut! Accusamus aliquid
+        assumenda commodi corporis debitis dignissimos distinctio dolore doloremque est et eum ex facilis harum in ipsam
+        iure iusto magni maxime odio, officiis perferendis perspiciatis quibusdam quod repellendus suscipit ullam vel
+        veniam veritatis voluptate, voluptatem?</p>
+
+</div>
+
+<script src="../bower_components/react/react.js"></script>
+<script src="../dist/playeros.js"></script>
+<script>
+    (function () {
+        var element1 = document.querySelector('#playeros1');
+        var playlist1 = [
+            {
+                'name': 'In The Moment of Inspiration',
+                'src': 'https://amazingaudioplayer.com/wp-content/uploads/amazingaudioplayer/8/audios/In%20the%20Moment%20of%20Inspiration.mp3'
+            },
+            {
+                'name': 'Beyonce-Survivor-Sickick-Trap-Remix',
+                'src': 'https://bo0om.ru/wp-content/uploads/2015/04/Beyonce-Survivor-Sickick-Trap-Remix.mp3?_=1'
+            },
+            {
+                'name': 'Anti-Trust - Antisocial',
+                'src': 'http://www.americanparanoia.com/AntiTrust%20-%20AntiSocial.mp3'
+            },
+            {
+                'name': 'Anti-Trust - Day By Day',
+                'src': 'http://www.americanparanoia.com/AntiTrust%20-%20DayByDay.mp3'
+            },
+            {
+                'name': 'Anti-Trust - Sick Inside',
+                'src': 'http://www.americanparanoia.com/AntiTrust%20-%20Sick%20Inside.mp3'
+            },
+            {
+                'name': 'Anti-Trust - Lost',
+                'src': 'http://www.americanparanoia.com/AntiTrust%20-%20Lost.mp3'
+            },
+            {
+                'name': 'Anti-Trust - Misery',
+                'src': 'http://www.americanparanoia.com/AntiTrust%20-%20Misery.mp3'
+            },
+            {
+                'name': 'Anti-Trust - Guilty as Charged',
+                'src': 'http://www.americanparanoia.com/AntiTrust%20-%20Guilty%20as%20Charged.mp3'
+            }
+        ];
+        new Playeros(element1, playlist1);
+
+        var element2 = document.querySelector('#playeros2');
+        var playlist2 = [
+            {
+                'name': 'Anti-Trust - Lost',
+                'src': 'http://www.americanparanoia.com/AntiTrust%20-%20Lost.mp3'
+            },
+            {
+                'name': 'Anti-Trust - Misery',
+                'src': 'http://www.americanparanoia.com/AntiTrust%20-%20Misery.mp3'
+            },
+            {
+                'name': 'Anti-Trust - Guilty as Charged',
+                'src': 'http://www.americanparanoia.com/AntiTrust%20-%20Guilty%20as%20Charged.mp3'
+            }
+        ];
+        new Playeros(element2, playlist2);
+
+    }());
+
+</script>
+</body>
+</html>
